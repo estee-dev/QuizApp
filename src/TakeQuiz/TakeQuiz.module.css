@@ -27,27 +27,44 @@
 
 .app {
     background: #fff;
+    border-radius: 10px;
     width: 90%;
-    max-width: 600px;
+    max-width: 800px;
     margin: 100px auto;
-    padding: 30px;
+    padding: 50px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 
-.app h1 {
-    font-size: 25px;
+.app .heading {
+    font-size: 40px;
     color: #001e4d;
     font-weight: 600;
+    padding-bottom: 10px;
+}
+
+.app .timer {
+    float: right;
+    font-size: 40px;
+    color: #001e4d;
+    font-weight: 600;
+    padding-bottom: 10px;
+}
+
+.welcomemsg {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
     border-bottom: 1px solid #001e4d;
-    padding-bottom: 30px;
 }
 
 .quiz {
-    padding: 20px 0;
+    padding: 5px 0;
+    margin-top: 30px;
 }
 
 .quiz h2 {
-    font-size: 18px;
+    font-size: 30px;
     color: #001e4d;
     font-weight: 600;
 }
@@ -56,9 +73,12 @@
     background: #fff;
     color: #222;
     font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
     width: 100%;
     border: 1px solid #222;
-    padding: 10px;
+    border-radius: 5px;
+    padding: 15px 20px;
     margin: 10px 0;
     text-align: left;
     cursor: pointer;
@@ -74,28 +94,22 @@
     cursor: no-drop;
 }
 
-.prevbtn {
-    background: #a00101;
-    color: #fff;
-    font-weight: 500;
-    width: 150px;
-    border: 0;
-    padding: 10px;
-    margin: 20px auto 0;
-    cursor: pointer;
-    display: none;
+.skipbtn {
+  background-color: rgb(255, 95, 95);
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 3px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  float: right;
 }
 
-.nextbtn {
-    background: #001e4d;
-    color: #fff;
-    font-weight: 500;
-    width: 150px;
-    border: 0;
-    padding: 10px;
-    margin: 20px auto 0;
-    cursor: pointer;
-    display: none;
+.skipbtn:hover {
+  background-color: rgb(210, 79, 79);
 }
 
 .correct {
@@ -104,4 +118,42 @@
 
 .incorrect {
     background: #ff9393;
+}
+
+.errormsg {
+    background: #000814;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('../assets/Background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: soft-light;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 200%;
+    text-align: center;
+    max-width: 100%;
+}
+
+.anotherbtn {
+  background-color: #28a745;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 3px;
+  margin-top: 40px;
+  cursor: pointer;
+  transition: 0.3s;
+  float: right;
+}
+
+.anotherbtn:hover {
+  background-color: #218838;
 }

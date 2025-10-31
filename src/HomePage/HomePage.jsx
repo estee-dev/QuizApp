@@ -4,12 +4,15 @@ import styles from './HomePage.module.css'
 import Logo from '../assets/Logo.png'
 import Button from './Button';
 import TakeQuiz from '../TakeQuiz/TakeQuiz';
+import Form from '../Form/Form';
 
 function HomePage() {
 
     const [quizData, setQuizData] = useState([]);
     const [quizTaker, setQuizTaker] = useState('');
     const [showQuiz, setShowQuiz] = useState(false);
+    const [showForm, setShowForm] = useState(false);
+    const [timeLimit, setTimeLimit] = useState(0);
     const fileInputRef = useRef(null);
 
     const handleUploadClick = () => {
@@ -29,6 +32,7 @@ function HomePage() {
 
             setQuizData(jsonData);
             console.log('Uploaded Quiz Data:', jsonData);
+            alert('✅ Quiz upload successful! You may proceed to take a Quiz');
         };
 
         reader.readAsArrayBuffer(file);
@@ -36,23 +40,45 @@ function HomePage() {
 
 
     const handleTakeQuiz = () => {
-        const name = prompt('Enter your name to start the quiz:');
-        if (name && name.trim() !== '') {
-            setQuizTaker(name.trim());
-            setShowQuiz(true);
-        } else {
-            alert('Name is required to take the quiz.');
+        if (quizData.length === 0) {
+            alert('Please upload a quiz file first!');
+            return;
         }
+        setShowForm(true);
+    };
+
+    const handleStartQuiz = (name, time) => {
+        setQuizTaker(name);
+        setTimeLimit(time);
+        setShowForm(false);
+        setShowQuiz(true);
+    };
+
+    const handleCloseForm = () => {
+        setShowForm(false);
     };
 
     if (showQuiz) {
-        return <TakeQuiz quizTaker={quizTaker} uploadedQuizData={quizData} />;
+        return (
+            <TakeQuiz
+                quizTaker={quizTaker}
+                uploadedQuizData={quizData}
+                timeLimit={timeLimit}
+                onRestart={() => {
+                setShowQuiz(false);
+                setQuizTaker('');
+                setQuizData([]);
+                setTimeLimit(0);
+            }}
+            />
+        );
     }
+
 
 
     return (
         <>
-            <body className={styles.body}>
+            <div className={styles.homepage}>
                 <img src={Logo} alt="Logo" />
                 <div className={styles.content}>
                     <h1>Welcome to Quiz.COM</h1>
@@ -69,10 +95,12 @@ function HomePage() {
                 <Button name="Uplaod Quiz" onClick={handleUploadClick} />
                 <Button name="Take Quiz" onClick={handleTakeQuiz} />
 
+                {showForm && <Form onStart={handleStartQuiz} onClose={handleCloseForm} />}
+
                 {/* {quizData.length > 0 && (
                     <pre>{JSON.stringify(quizData, null, 2)}</pre>
                 )} */}
-            </body>
+            </div>
         </>
     );
 }

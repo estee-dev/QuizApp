@@ -1,20 +1,19 @@
-.body {
+.homepage {
     padding: 100px;
     font-family: Arial, sans-serif;
     background-image: url('../assets/Background.jpg');
     background-size: cover;
     height: 100vh;
-    display: flex;
     justify-content: flex-start;
     color: rgb(255, 255, 255);
 }
 
-.body img {
-    max-width: 40%;
+.homepage img {
+    max-width: 25%;
     margin: 20px;
 }
 
-.body .content {
+.homepage .content {
     margin: 20px;
     margin-top: 150px;
 }
