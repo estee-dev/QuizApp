@@ -21,9 +21,9 @@ function Form({ onStart, onClose }) {
         <button className={styles.closeBtn} onClick={onClose}>
           ×
         </button>
-        <h2>Enter Quiz Details</h2>
-        <form onSubmit={handleSubmit}>
-          <label>Name:</label>
+        <h2>Enter Your Details</h2>
+        <form className={styles.form} onSubmit={handleSubmit}>
+          <label>Name of Participant:</label>
           <input
             type="text"
             placeholder="Enter your name"
@@ -38,7 +38,7 @@ function Form({ onStart, onClose }) {
             onChange={(e) => setTime(e.target.value)}
           />
 
-          <button type="submit">Start Quiz</button>
+          <button className={styles.startquizbtn} type="submit">Start Quiz</button>
         </form>
       </div>
     </div>
