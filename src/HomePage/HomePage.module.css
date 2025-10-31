@@ -1,0 +1,48 @@
+.body {
+    padding: 100px;
+    font-family: Arial, sans-serif;
+    background-image: url('../assets/Background.jpg');
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    color: rgb(255, 255, 255);
+}
+
+.body img {
+    max-width: 40%;
+    margin: 20px;
+}
+
+.body .content {
+    margin: 20px;
+    margin-top: 150px;
+}
+
+h1 {
+    font-size: 300%;
+    color: #1F3954;
+    margin-bottom: 20px;
+}
+
+.button {
+    padding: 20px 60px;
+    margin: 20px;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    max-width: 300px;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background-color: #1d7efc;
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
